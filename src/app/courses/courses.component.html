@@ -1,0 +1,38 @@
+<!-- <h2>{{ title }}</h2> -->
+<h2 [textContent]="title"></h2>
+<!-- <img src="{{ imageUrl }}"> -->
+<img [src]="imageUrl">
+<table>
+  <tr>
+    <td [attr.colspan]="colspan"></td>
+  </tr>
+</table>
+<div (click)="onDivClicked()">
+    <button
+    class="btn btn-primary"
+    [class.active]="isActive"
+    [style.backgroundColor]="isActive ? 'red' : 'blue'"
+    (click)="onSave($event)">
+    Save
+  </button>
+</div>
+<ul>
+  <li *ngFor="let course of courses">{{ course }}</li>
+</ul>
+<!-- <input (keyup)="onKeyUp($event)"> -->
+<!-- ---------------------------------------------- -->
+<!-- <input (keyup.enter)="onKeyUp()"> -->
+<!-- ---------------------------------------------- -->
+<!-- <input type="email" #email (keyup.enter)="onKeyUp(email.value)"> -->
+<!-- ---------------------------------------------- two way binding -->
+<!-- <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()"> -->
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()"> <!-- it need import FormsModule inside app.module.ts file -->
+<!-- Pipes https://angular.io/api/common/DatePipe -->
+<p>{{ pipeExample.title | uppercase }}</p>
+<p>{{ pipeExample.students | number }}</p>
+<p>{{ pipeExample.rating | number:'1.1-1' }}</p> <!-- min decimal a max decimal point - approximated -->
+<p>{{ pipeExample.rating | number:'1.1-2' }}</p> <!-- min decimal a max decimal point -->
+<p>{{ pipeExample.price | currency:'AUD':true:'3.2-2' }}</p>
+<p>{{ pipeExample.releaseData | date:'shortDate' }}</p>
+<!-- Custom pipe  -->
+<p>{{ pipeCustom | summary:10 }}</p>
