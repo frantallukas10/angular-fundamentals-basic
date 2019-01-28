@@ -1,0 +1,15 @@
+<p>{{ getTitle() }}</p>
+<!--
+  angular building blog called directive use for manipulating the DOM
+  *ngFor=""
+  we can use it for add of the DOM element, remove existing fot the DOM element, change class of the DOM element or style
+ -->
+<ul>
+  <li *ngFor="let course of courses">{{ course }}</li>
+</ul>
+
+<ul>
+  <ng-template ngFor let-course [ngForOf]="courses">
+    <li>{{ course }}</li>
+  </ng-template>
+</ul>
