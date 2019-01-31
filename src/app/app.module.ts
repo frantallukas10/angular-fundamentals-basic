@@ -9,15 +9,18 @@ import { ExampleDirectiveComponent } from "./example-directive/example-directive
 
 import { ExampleService } from "./example-services/example.service";
 import { ExampleServicesComponent } from "./example-services/example-services.component";
+import { ExampleDisplayDataComponent } from "./example-display-data/example-display-data.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ExampleInterpolationComponent,
     ExampleDirectiveComponent,
-    ExampleServicesComponent
+    ExampleServicesComponent,
+    ExampleDisplayDataComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
+  // dependency injection
   providers: [ExampleService],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,80 @@
+<!-- string interpolation -->
+<h2>{{ title }}</h2>
+<!-- property binding -->
+<h2 [textContent]="title"></h2>
+<!-- string interpolation -->
+<img src="{{ imageUrl }}" /><br />
+<!-- property binding -->
+<img [src]="imageUrl" />
+<!-- ----------------------------------------------- -->
+<table>
+  <tr>
+    <!-- attribute binding -->
+    <td [attr.colspan]="colSpan">1 row</td>
+  </tr>
+</table>
+
+<!-- ----------------------------------------------- -->
+<!-- using bootstrap -->
+<button class="btn btn-primary">button with bootstrap classes</button><br />
+<!-- ----------------------------------------------- -->
+<!-- using class binding -->
+<button class="btn btn-primary" [class.active]="isActive">
+  button with class binding</button
+><br />
+<!-- ----------------------------------------------- -->
+<!-- Style binding -->
+<button
+  class="btn btn-primary"
+  [style.backgroundColor]="isActive ? 'red' : 'white'"
+>
+  button with style binding</button
+><br />
+<!-- ----------------------------------------------- -->
+<!-- Event binding -->
+<div (click)="onDivClicked()">
+  <button
+    class="btn btn-primary"
+    (click)="onSave($event)"
+    [style.backgroundColor]="isActive ? 'red' : 'white'"
+  >
+    button with event binding
+  </button>
+</div>
+<br />
+<!-- ----------------------------------------------- -->
+<!-- Event filtering -->
+<label for="filtering">Event filtering</label><br />
+<input id="filtering" (keyup)="onKeyUp($event)" /><br />
+<!-- or shorter version -->
+<label for="filtering-shorter">Event filtering shorter</label><br />
+<input id="filtering-shorter" (keyup.enter)="onKeyOnlyForEnter()" /><br />
+<!-- ----------------------------------------------- -->
+<!-- Template variable -->
+<label for="template">Template variable {{ outputValue }}</label
+><br />
+<input id="template" (keyup.enter)="targetValue($event)" /><br />
+<!-- or -->
+<label for="template-email"
+  >Template variable email {{ outputValueEmail }}</label
+><br />
+<input
+  id="template-email"
+  #email
+  (keyup.enter)="targetValueEmail(email.value)"
+/><br />
+<!-- ----------------------------------------------- -->
+<!-- Two-way binding -->
+<label for="emailFirst"> Two-way binding email {{ emailFirst }} </label><br />
+<input
+  id="emailFirst"
+  [value]="emailFirst"
+  (keyup.enter)="emailFirst = $event.target.value; targetValueEmailFirst()"
+/><br />
+<!-- or shorter and cleaner -->
+<label for="emailSecond"> Two-way binding email {{ emailSecond }} </label><br />
+<input
+  id="emailSecond"
+  [(ngModel)]="emailSecond"
+  (keyup.enter)="targetValueEmailSecond()"
+/><br />
