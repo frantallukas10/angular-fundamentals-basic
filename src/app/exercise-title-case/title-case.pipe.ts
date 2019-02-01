@@ -9,9 +9,9 @@ export class TitleCasePipe implements PipeTransform {
       return null;
     }
 
-    let words = value.split(" ");
-    for (var i = 0; i < words.length; i++) {
-      let word = words[i];
+    const words = value.split(" ");
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
       if (i > 0 && this.isPreposition(word)) {
         words[i] = word.toLowerCase();
       } else {
@@ -26,7 +26,7 @@ export class TitleCasePipe implements PipeTransform {
   }
 
   private isPreposition(word: string): boolean {
-    let prepositions = ["of", "the"];
+    const prepositions = ["of", "the"];
     return prepositions.includes(word.toLowerCase());
   }
 }

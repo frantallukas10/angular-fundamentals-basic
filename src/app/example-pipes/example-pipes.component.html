@@ -1,0 +1,15 @@
+<!-- text pipe -->
+<p>{{ course.title | uppercase }}</p>
+<!-- or -->
+<p>{{ course.title | uppercase | lowercase }}</p>
+<p>{{ course.students }}</p>
+<!-- number pipe more readable -->
+<p>{{ course.students | number }}</p>
+<!-- min max digit -->
+<p>{{ course.rating | number: "1.2-2" }}</p>
+<p>{{ course.rating | number: "2.1-1" }}</p>
+<!-- price pipe -->
+<p>{{ course.price | currency }}</p>
+<p>{{ course.price | currency: "AUD":true:"3.2-2" }}</p>
+<!-- date pipe https://angular.io/api/common/DatePipe -->
+<p>{{ course.releaseDate | date: "shortDate" }}</p>
